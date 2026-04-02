@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kritika Mishra | Portfolio</title>
+  <style>
+    :root{--bg:#0b1220;--card:#111827;--text:#e5e7eb;--muted:#9ca3af;--primary:#38bdf8;--accent:#6366f1;--border:#1f2937}
+    body.light{--bg:#f5f7fb;--card:#ffffff;--text:#111827;--muted:#6b7280;--primary:#2563eb;--accent:#7c3aed;--border:#e5e7eb}
+    body{margin:0;font-family:Inter,Segoe UI,Arial;background:var(--bg);color:var(--text)}
+    .nav{display:flex;justify-content:space-between;padding:15px 30px;background:#0f172a;color:#fff}
+    .nav a{margin-left:15px}
+    .toggle{cursor:pointer}
+    .hero{display:flex;justify-content:space-between;align-items:center;padding:60px;background:linear-gradient(135deg,#0f172a,#312e81)}
+    .hero h1{font-size:42px}
+    .hero span{color:var(--primary)}
+    .avatar{width:250px;height:250px;border-radius:50%;border:4px solid var(--primary)}
+    section{max-width:1000px;margin:30px auto;padding:25px;background:var(--card);border-radius:12px}
+    h2{border-left:5px solid var(--primary);padding-left:10px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
+    .card{padding:15px;border:1px solid var(--border);border-radius:10px}
+    .proj{cursor:pointer}
+
+    /* Modal */
+    .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);justify-content:center;align-items:center}
+    .modal-content{background:#fff;color:#000;padding:20px;border-radius:10px;max-width:500px}
+    .close{float:right;cursor:pointer;font-size:20px}
+  </style>
+</head>
+<body>
+
+<div class="nav">
+  <div>Kritika</div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <span class="toggle" onclick="toggleTheme()">🌙</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div>
+    <h1>Hi, I'm <span>Kritika</span></h1>
+    <h3>Java Full Stack Developer</h3>
+    <p>I specialize in building scalable, high-performance backend systems using Java and Spring Boot. With hands-on experience in microservices architecture, I focus on designing efficient APIs and optimizing system performance for real-world business applications.</p>
+  </div>
+  <img src="profile.jpg" class="avatar" style="width:180px;height:180px;object-fit:cover;">
+</div>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am a passionate Software Engineer with over 2 years of professional experience in developing enterprise-level applications. My expertise lies in Java backend development, where I have worked extensively with Spring Boot to build scalable and maintainable systems.
+  </p>
+  <p>
+    Currently working in the banking domain, I have contributed to building Loan Origination Systems that handle complex workflows including customer onboarding, document verification, and loan approval processes. I enjoy solving challenging problems, improving system efficiency, and writing clean, production-ready code.
+  </p>
+  <p>
+    I am also experienced in working with databases like PostgreSQL and Oracle, and have a strong understanding of microservices architecture, CI/CD pipelines, and event-driven systems using Kafka.
+  </p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="card">Java, C, SQL</div>
+    <div class="card">Spring Boot, Angular, .NET</div>
+    <div class="card">Microservices, Kafka, REST APIs</div>
+    <div class="card">MySQL, PostgreSQL, Oracle</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card proj" onclick="openModal('los')">
+      Loan Origination System
+    </div>
+    <div class="card proj" onclick="openModal('cms')">
+      Contract Management System
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+function toggleTheme(){document.body.classList.toggle('light')}
+
+function openModal(type){
+  const modal=document.getElementById('modal');
+  const body=document.getElementById('modal-body');
+
+  if(type==='los'){
+    body.innerHTML=`<h3>Loan Origination System</h3>
+    <p>This system was developed to streamline the entire loan lifecycle in banking applications. It handles customer onboarding, document verification, eligibility checks, and final approval workflows.</p>
+    <p>Built using Spring Boot and microservices architecture, it ensures scalability, high availability, and efficient processing of large volumes of data.</p>`;
+  }
+  else{
+    body.innerHTML=`<h3>Contract Management System</h3>
+    <p>This application was developed during my internship at Tata Steel. It helps manage and track contracts efficiently.</p>
+    <p>Built using ASP.NET and SQL Server, it improved document tracking and workflow efficiency.</p>`;
+  }
+
+  modal.style.display='flex';
+}
+
+function closeModal(){document.getElementById('modal').style.display='none'}
+</script>
+
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="card">
+    <h3>B.Tech - Computer Science & Engineering</h3>
+    <p>C.V. Raman Global University, Bhubaneswar</p>
+    <p><strong>CGPA:</strong> 8.96</p>
+  </div>
+  <div class="card">
+    <h3>Class 12 (CBSE)</h3>
+    <p>Motilal Nehru Public School, Jamshedpur</p>
+    <p>83.3%</p>
+  </div>
+  <div class="card">
+    <h3>Class 10 (CBSE)</h3>
+    <p>Motilal Nehru Public School, Jamshedpur</p>
+    <p>88.6%</p>
+  </div>
+</section>
+
+<section id="awards">
+  <h2>Awards & Certifications</h2>
+  <div class="card">
+    <h3>Spot Award - Intellect Design Arena</h3>
+    <p>Recognized for ownership and contribution in HDFC Workflow implementation.</p>
+  </div>
+  <div class="card">
+    <h3>Tata Steel Millennium Scholarship</h3>
+    <p>Awarded for academic excellence in Class 12 board examinations.</p>
+  </div>
+</section>
+
+</body>
+</html>
