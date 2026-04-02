@@ -21,8 +21,6 @@ I am a Software Engineer with 2 years of experience in building scalable backend
 
 ## 🛠 Tech Stack
 - HTML5
-- CSS3
-- JavaScript
 
 ---
 
